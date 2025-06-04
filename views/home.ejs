@@ -1,0 +1,52 @@
+<div id="loader-wrapper"
+    class="position-fixed top-0 start-0 w-100 h-100 bg-white d-flex justify-content-center align-items-center transition-opacity"
+    style="z-index: 1050; opacity: 1;">
+    <img src="https://c10.patreonusercontent.com/4/patreon-media/p/campaign/10371732/3bb5b89885b743cd986025be55e0f090/eyJ3Ijo5NjAsIndlIjoxfQ%3D%3D/1.jpg?token-hash=Tp6S5cJQZn_WOWMCGloOmwYT-y7E0rRW2IeoBumlBcQ%3D&token-time=1751587200"
+        alt="Staywise Logo" class="w-100" style="object-fit: cover;">
+</div>
+
+<div id="main-content" class="main-hidden">
+    <div class="container text-center mt-5">
+        <h1 class="display-4">Welcome to Staywise</h1>
+        <p class="lead">Your perfect stay starts here.</p>
+        <form action="/rooms">
+            <button class="btn btn-success">Check rooms</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .transition-opacity {
+        transition: opacity 0.8s ease;
+    }
+
+    .fade-out {
+        opacity: 0 !important;
+        pointer-events: none;
+    }
+    .main-hidden {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    .main-visible {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+</style>
+<script>
+    window.addEventListener("load", function () {
+        setTimeout(() => {
+            const loader = document.getElementById("loader-wrapper");
+            const mainContent = document.getElementById("main-content");
+            loader.classList.add("fade-out");
+
+            setTimeout(() => {
+                loader.style.display = "none";
+                mainContent.classList.remove("main-hidden");
+                mainContent.classList.add("main-visible");
+            }, 800);
+        }, 2000);
+    });
+</script>

@@ -1,0 +1,30 @@
+<div style="text-align: center;">
+    <h1>Rooms Info</h1>
+</div>
+<div class="container">
+    <% for (let room of rooms) { %>
+        <div class="card mb-4">
+            <img class="card-img-top img-fluid" src="<%= room.imageUrls %>" alt="Room image">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= room.title %>
+                </h5>
+                <p class="card-text">
+                    <%= room.description %>
+                </p>
+            </div>
+            <div class="card-footer">
+                <h6 class="text-muted">Max Occupancy: <%= room.maxOccupancy %>
+                </h6>
+                <div class="d-flex justify-content-between">
+                    <form action="/rooms/<%=room._id%>">
+                        <button type="submit" class="btn btn-info">Check Pricing</button>
+                    </form>
+                    <form action="/rooms/<%=room._id%>/booking">
+                        <button type="submit" class="btn btn-success">Book Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% } %>
+</div>

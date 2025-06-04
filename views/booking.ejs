@@ -1,0 +1,39 @@
+<div class="container d-flex justify-content-center align-items-center mt-3 mb-3">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+            <div class="card shadow">
+                <img src="https://i0.wp.com/theluxurytravelexpert.com/wp-content/uploads/2020/12/header2-1.jpg?fit=1280%2C720&ssl=1"
+                    class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Book room</h5>
+                    <form action="/booking" class="needs-validation" novalidate method="post">
+                        <div class="mb-3">
+                            <label class="form-label" for="usernm">Guest name</label>
+                            <input class="form-control" type="text" id="usernm" name="usernm" required autofocus>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="hidden" name="room" value="<%= room._id %>">
+                            <label class="form-label" for="date">Check-in </label>
+                            <input class="form-control" type="date" id="date" name="checkIn" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="CheckOut">Check-out</label>
+                            <input class="form-control" type="date" id="CheckOut" name="checkOut" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <button class="btn btn-success btn-block">Book room</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/javascripts/formvalidate.js"></script>

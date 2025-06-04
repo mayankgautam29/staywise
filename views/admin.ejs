@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <h1>All Bookings</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Room</th>
+        <th>Check-In</th>
+        <th>Check-Out</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% bookings.forEach(b => { %>
+        <tr>
+          <td><%= b.user.username %></td>
+          <td><%= b.room.title %></td>
+          <td><%= b.checkIn.toDateString() %></td>
+          <td><%= b.checkOut.toDateString() %></td>
+          <td><%= b.status %></td>
+          <td>
+            <% if(b.status === 'pending') { %>
+              <form action="/admin/bookings/<%= b._id %>/accept?_method=PATCH" method="POST" class="d-inline">
+                <button class="btn btn-success btn-sm">Accept</button>
+              </form>
+              <form action="/admin/bookings/<%= b._id %>/reject?_method=PATCH" method="POST" class="d-inline">
+                <button class="btn btn-danger btn-sm">Reject</button>
+              </form>
+            <% } else { %>
+              <span class="text-muted">Already approved by the admin</span>
+            <% } %>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,15 @@
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="card mt-2" style="width: 50%;">
+        <img class="card-img-top" src="<%=rooms.imageUrls%>" alt="Img not found">
+        <div class="card-body">
+            <h2><%=rooms.title%></h2>
+            <p><%=rooms.description%></p>
+            <hr>
+            <p class="card-text text-muted"><strong>Price : $<%=rooms.price%>/night</strong></p>
+            <p class="card-text">Max Occupancy: <%=rooms.maxOccupancy%></p>
+            <form action="/rooms/<%=rooms._id%>/booking">
+                <button class="btn btn-success">Book now</button>
+            </form>
+        </div>
+    </div>
+</div>
