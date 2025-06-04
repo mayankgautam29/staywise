@@ -106,6 +106,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  res.locals.currentPath = req.path;
+  next();
+});
+
 app.get('/admin/booking',isAdmin,catchAsync(async(req,res) => {
   const bookings = await Booking.find({}).populate('user').populate('room');
   res.render('admin',{bookings});
