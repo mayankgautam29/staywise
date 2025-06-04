@@ -32,6 +32,11 @@
         <li class="nav-item">
           <a class="nav-link <%= currentPath === '/userinfo' ? 'active' : '' %>" href="/userinfo">User profile</a>
         </li>
+        <% if (currentUser && currentUser.isAdmin) { %>
+          <li class="nav-item">
+            <a class="nav-link <%= currentPath === '/admin/booking' ? 'active' : '' %>" href="/admin/booking">Admin Panel</a>
+          </li>
+        <% } %> 
 
       </ul>
     </div>
